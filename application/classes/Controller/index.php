@@ -1,21 +1,23 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Controller_Welcome extends Controller {
+class Controller_Index extends Controller_Template {
+    
+        public $template = 'v_index';
 
 	public function action_index()
 	{
-                $name = $this->request->param('id');
-                if(!$name){
-                    $name = 'Goest';
-                }
-                $this->response->body('hello, '.$name);
+            $this->template->title = 'Интернет-магазин';
+            $this->template->content = 'Главная страница';
 	}
-        public function action_info()
+	public function action_catalog()
 	{
-		$firstName = $this->request->param('id');
-                $lostName = $this->request->param('lostName');
-                $age = $this->request->param('age');
-                $this->response->body('Your Name: '.$firstName.', Your Surname: '.$lostName.', Your Age: '. $age);
+            $products = array(
+                'Товар 1' => 100,
+                'Товар 2' => 200,
+            );
+            $this->template->title = 'Интернет-магазин';
+            $this->template->content = View::factory('v_catalog', array('products' => $products));
 	}
 
-} // End Welcome
+
+} 

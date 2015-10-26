@@ -147,7 +147,7 @@ Kohana::modules(array(
  */
 Route::set('default', '(<controller>(/<action>(/<id>(/<lostName>(/<age>)))))')
 	->defaults(array(
-		'controller' => 'welcome',
+		'controller' => 'index',
 		'action'     => 'index',
 	));
 
