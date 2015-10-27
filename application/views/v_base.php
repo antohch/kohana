@@ -19,6 +19,10 @@ body {
   height:100px;
   background: #f86a6a ;
 }
+#header h1{
+    text-align: center;
+    padding-top: 30px;
+}
 #container {
   min-width:800px;
 } 
@@ -36,9 +40,12 @@ body {
   width:200px;
   background: #fcbfaf;
 }
+#right h3{
+    text-align: center;
+}
 #footer {
   height:100px;
-  background: #467965;
+  background: #6c9f8b;
 }
 .clear {
   clear:both;
@@ -46,14 +53,22 @@ body {
 
 </style>
 <div id="wrapper">
-	<div id="header">Шапка</div>
+    <div id="header"><h1><?=$title?></h1></div>
 	<div id="container">
-		<div id="left">Левая колонка</div>
-		<div id="right">Правая колонка</div>
-		<div id="center">Центр</div>
+            <div id="left">
+                <ul>
+                <?php foreach($menu as $name => $href): ?>
+                    <li><a href="<?=$href?>"><?=$name?></a></li>
+                <?php endforeach?>
+                </ul>
+            </div>
+		<div id="right"><h3>Лучшей товар</h3><?=$best?></div>
+		<div id="center">
+                    <?=$content?>
+                </div>
 		<div></div>
 	</div>
 </div>
-<div id="footer">Подвал</div>
+<div id="footer"><?=$footer?></div>
 </body>
 </html>
