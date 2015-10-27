@@ -8,9 +8,8 @@
 </head>
 <body>
 <style  type="text/css">
-//пример здесь http://www.sitehere.ru/kolonki-odinakovoj-vysoty-na-css
-body 
-{
+//пример здесь: http://www.sitehere.ru/kolonki-odinakovoj-vysoty-na-css
+body {
     color: #000; 
     background: #FFFFFF;
     word-wrap: break-word;
@@ -30,13 +29,13 @@ body
 #container 
 {
     display: flex;
-    min-width:1200px;
+    min-width:1000px;
     margin: 0px auto;
 }
 #center 
 {
     background: #ecf2db;
-    min-width: 800px;
+    min-width: 600px;
 
 }
 #left 
