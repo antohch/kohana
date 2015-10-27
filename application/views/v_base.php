@@ -9,59 +9,63 @@
 <body>
 <style  type="text/css">
 //пример здесь http://www.sitehere.ru/kolonki-odinakovoj-vysoty-na-css
-body {
+body 
+{
     color: #000; 
     background: #FFFFFF;
     word-wrap: break-word;
     font-size: 12px; 
     font-family: Verdana, Arial, Sans-Serif; 
 }
-#header {
+#header 
+{
     height:100px;
     background: #f86a6a;
-
 }
-#header h1{
+#header h1
+{
     text-align: center;
     padding-top: 30px;
 }
-#container {
+#container 
+{
     display: flex;
     min-width:1200px;
     margin: 0px auto;
 }
-#center {
-   // margin:0px 200px 0px 200px;
+#center 
+{
     background: #ecf2db;
-    //display: table-cell;
     min-width: 800px;
-    //flex-grow:1;
 
 }
-#left {
+#left 
+{
     float:left; 
     width:200px;
     background: #fcbfaf;
     flex-shrink:0;
-    //display: table-cell;
 }
-#right {
+#right 
+{
     float:right; 
     width:200px;
     background: #fcbfaf;
     flex-shrink:0;
-    //display: table-cell;
 }
-#right h3{
+#right h3
+{
     text-align: center;
 }
-#footer {
+#footer 
+{
     height:100px;
     background: #6c9f8b;
     text-align: center;
 
 }
-.clear {
+.clear 
+{
     clear:both;
 }
 #conUp
