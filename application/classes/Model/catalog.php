@@ -9,14 +9,15 @@ class Model_Catalog extends Model {
                 'Товар 3' => 300,
                 'Товар 4' => 400,
                 );
-            $tabl = '<table border="1" width="100%">
-    <thead>
-        <tr>
-            <th>Наименование</th>
-            <th>Цена</th>
-        </tr>
-    </thead>
-    <tbody>';
+            $tabl = '
+                <table border="1" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Наименование</th>
+                            <th>Цена</th>
+                        </tr>
+                    </thead>
+                    <tbody>';
             foreach($products as $k => $v)
             {
                 $tabl .='        <tr>
