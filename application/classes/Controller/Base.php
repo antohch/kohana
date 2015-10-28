@@ -6,11 +6,12 @@ class Controller_Base extends Controller_Template{
         parent::before();
         $site_name = 'ITBooks';
         $site_description = "Интернет-магазин книг по IT";
-        
+        $footer = '&copy; Все права защищены';
         //Вывод в шаблон
         $this->template->site_name = $site_name;
         $this->template->site_description = $site_description;
-        $this->template->page_teitle = null;
+        $this->template->page_title = null;
+        $this->template->page_footer = $footer;
         
         //Подключение стилий и скриптов
         $this->template->styles = array();
@@ -21,6 +22,5 @@ class Controller_Base extends Controller_Template{
         $this->template->block_center = null;
         $this->template->block_right = null;
     }
-
 }
 
