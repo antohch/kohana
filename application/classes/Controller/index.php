@@ -15,12 +15,10 @@ class Controller_Index extends Controller_Template{
     {
         $products = 'Добро пожаловать';
         $this->template->content = $products;
-        
     }
     public function action_catalog()
     {
         $products = Model::factory('Catalog')->all_products();
-        //$this->template->content = $products;
         $this->template->content = View::factory('v_catalog', array('products' => $products,));
     }
 }
