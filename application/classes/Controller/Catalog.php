@@ -2,6 +2,14 @@
 //Каталог
 
 class Controller_Catalog extends Controller_Base{
+    public function before(){
+        parent::before();
+        //виджеты
+        $menu = Request::factory('widgets/menu')->execute();
+        
+        //вывод в шаблон
+        $this->template->block_left = array($menu);
+    }
     public function action_index(){
         //получить список продуктов
         $products = Model::factory('catalog')->all_products();
