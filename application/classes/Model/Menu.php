@@ -6,7 +6,8 @@ class Model_Menu extends Model{
         return array(
             'На главную' => 'http://kohana/index',
             'Каталок' => 'http://kohana/catalog',
-            'Лучшие товары' => '#',
+            'Лучшие товары' => 'http://kohana/top',
+            'Корзина' => 'http://kohana/bay',
         );
     }
 }

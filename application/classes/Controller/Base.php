@@ -4,9 +4,9 @@ class Controller_Base extends Controller_Template{
     public $template = 'v_base';
     public function before(){
         parent::before();
-        $site_name = 'ITBooks';
-        $site_description = "Интернет-магазин книг по IT";
-        $footer = '&copy; Все права защищены';
+        $site_name = Kohana::$config->load('myconf.site_name');
+        $site_description = Kohana::$config->load('myconf.site_description');
+        $footer = Kohana::$config->load('myconf.footer');
         //Вывод в шаблон
         $this->template->site_name = $site_name;
         $this->template->site_description = $site_description;
