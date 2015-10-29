@@ -12,71 +12,11 @@
         <?php endforeach?>
 </head>
 <body>
-<style  type="text/css">
-//пример здесь: http://www.sitehere.ru/kolonki-odinakovoj-vysoty-na-css
-body {
-    color: #000; 
-    background: #FFFFFF;
-    word-wrap: break-word;
-    font-size: 12px; 
-    font-family: Verdana, Arial, Sans-Serif; 
-}
-#header 
-{
-    height:100px;
-    background: #f86a6a;
-}
-#header h1
-{
-    text-align: center;
-    padding-top: 30px;
-}
-#container 
-{
-    display: flex;
-    min-width:1000px;
-    margin: 0px auto;
-}
-#center 
-{
-    background: #ecf2db;
-    width: 100%;
-
-}
-#left 
-{
-    float:left; 
-    width:200px;
-    background: #fcbfaf;
-    flex-shrink:0;
-}
-#right 
-{
-    float:right; 
-    width:200px;
-    background: #fcbfaf;
-    flex-shrink:0;
-}
-#right h3
-{
-    text-align: center;
-}
-#footer 
-{
-    height:100px;
-    background: #6c9f8b;
-    text-align: center;
-
-}
-.clear 
-{
-    clear:both;
-}
-#conUp
-{
-    display: flex; 
-}
-</style>
+<style type="text/css">
+<?php
+ include $styles[0];
+?>
+</style>    
 <div id="wrapper">
     <div id="header"><h1><?=$site_name?><br><?=$site_description?></h1></div>
     <div id="conUp">
@@ -85,7 +25,7 @@ body {
                     <div id="left">
                         <ul>
                             <?php foreach($block_left as $name => $href): ?>
-                                <li><a href="<?=$href?>"><?=$name?></a></li>
+                                <?=$href?>
                             <?php endforeach?>
                         </ul>
                     </div>

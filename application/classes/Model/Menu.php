@@ -4,8 +4,8 @@ class Model_Menu extends Model{
     public function all_menu()
     {
         return array(
-            'На главную' => 'http://kohana/',
-            'Каталок' => 'http://kohana/index/catalog',
+            'На главную' => 'http://kohana/index',
+            'Каталок' => 'http://kohana/catalog',
             'Лучшие товары' => '#',
         );
     }
