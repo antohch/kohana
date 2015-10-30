@@ -21,6 +21,7 @@ class Controller_Base extends Controller_Template{
         $this->template->block_left = null;
         $this->template->block_center = null;
         $this->template->block_right = null;
+        $this->template->block_headerRight = null;
     }
 }
 

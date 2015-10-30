@@ -6,8 +6,10 @@ class Controller_Top extends Controller_Base{
         parent::before();
         //виджеты
         $menu = Request::factory('widgets/menu')->execute();
+        $mybay = Request::factory('widgets/mybay')->execute();
         
         //вывод в шаблон
+        $this->template->block_headerRight = array($mybay);
         $this->template->block_left = array($menu);
     }
     public function action_index(){

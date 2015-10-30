@@ -16,6 +16,18 @@ body {
     text-align: center;
     padding-top: 30px;
 }
+#headerIn{
+    background: #ff0;
+    float: right;
+    flex-shrink:0;
+    margin: -87px 91px 12px 13px;
+}
+#headerCont{
+    min-width:1000px;
+    margin: 0px auto;
+    display: block;
+    width: 1000px
+}
 #container 
 {
     display: flex;

@@ -7,7 +7,10 @@ class Controller_Index extends Controller_Base{
         $menu = Request::factory('widgets/menu')->execute();
         $topproducts = Request::factory('widgets/topproducts')->execute();
         $into = Request::factory('widgets/Into')->execute();
+        $mybay = Request::factory('widgets/mybay')->execute();
+        
         //вывод в шаблон
+        $this->template->block_headerRight = array($mybay);
         $this->template->block_left = array($menu);
         $this->template->block_right = array($into,$topproducts);
     }

@@ -12,13 +12,25 @@
         <?php endforeach?>
 </head>
 <body>
-<style type="text/css">
-<?php
- include $styles[0];
-?>
-</style>    
+   
 <div id="wrapper">
-    <div id="header"><h1><?=$site_name?><br><?=$site_description?></h1></div>
+   
+    <div id="header">
+        
+        <div id="headerCont">
+            
+            <h1><?=$site_name?><br><?=$site_description?></h1>
+            <?php if(isset($block_headerRight)):?>
+                <div id="headerIn">
+                    <?php foreach($block_headerRight as $k => $v):?>
+                        <?=$v?>
+                    <?php endforeach?>
+                </div>
+            <?php endif?>
+        </div>
+    </div>
+
+
     <div id="conUp">
         <div id="container">
                 <?php if (isset($block_left)): ?>
