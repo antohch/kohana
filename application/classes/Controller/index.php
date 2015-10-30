@@ -16,10 +16,14 @@ class Controller_Index extends Controller_Base{
     }
     public function action_index()
     {  
-        $block_center = View::factory('v_index');
+        I18n::lang('ru');
+        $text = Model::factory('index')->showIndex();
+        $user = Model::factory('index')->showUser();
+        $block_center = View::factory('v_index',array('text' => $text,'username' => $user));
+        $messag = Kohana::message('forms/contact', 'errors.user_not_found');
         //вывод шаблона
        // $this->template->page_title = 'Главная';
         $this->template->page_title = Kohana::$config->load('myconf.page_title');
-        $this->template->block_center = array($block_center);
+        $this->template->block_center = array($block_center, $messag);
     }
 }
