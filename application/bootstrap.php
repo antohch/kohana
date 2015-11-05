@@ -145,6 +145,21 @@ Kohana::modules(array(
  * Set the routes. Each route must have a minimum of a name, a URI and a set of
  * defaults for the URI.
  */
+Route::set('user','(<action>)', array('action' => '(zakaz|profil)'))
+        ->defaults(array(
+            'controller' => 'user',
+            'action' => 'zakaz',
+        ));
+Route::set('auto','(<action>)', array('action' => '(enter|reg|exit)'))
+        ->defaults(array(
+            'controller' => 'auto',
+            'action' => 'oplata',
+        ));
+Route::set('wokr','(<action>)', array('action' => '(oplata|dostavka|korzina)'))
+        ->defaults(array(
+            'controller' => 'work',
+            'action' => 'oplata',
+        ));
 Route::set('widgets', 'widgets/(<controller>(/<action>(/<index>)))')
 	->defaults(array(
                 'directory' => 'widgets',
