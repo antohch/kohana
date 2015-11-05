@@ -21,4 +21,7 @@ class Controller_Catalog extends Controller_Base{
         $this->template->page_title = 'Каталог';
         $this->template->block_center = array($content);
     }
+    public function action_index2(){
+        
+    }
 }

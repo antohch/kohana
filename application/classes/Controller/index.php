@@ -26,4 +26,5 @@ class Controller_Index extends Controller_Base{
         $this->template->page_title = Kohana::$config->load('myconf.page_title');
         $this->template->block_center = array($block_center, $messag);
     }
+
 }

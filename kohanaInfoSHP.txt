@@ -4,7 +4,7 @@
 //урок 1 Всё
 //урок 2 Всё
 //урок 3 Всё
-//урок 4 00:00:00
+//урок 4 00:07:00
 //урок 5 00:00:00
 //урок 6 00:00:00
 //урок 7 00:00:00
@@ -97,3 +97,39 @@
 ======================================
 ======================================
 ==
+$content = View:factory('v_catalog, array('products' => $products)');//передать
+
+$content = View::factory('v_catalog'->bind('products', $products));//вывод данных в шаблон, плюз привязка к переменной, переменную можно изменить после вызова этого метода
+
+для запрета виджета только в одном в фале бефо
+в конфигурационном файле пишем
+retrun array(
+    'menu' => array (
+        'catalog' => array('index2', 'index3')),
+);
+
+создаем котроллер widgets.php
+class Controller_Widgets extends Controller_Template {
+
+    public function  before() {
+         parent::before();
+
+         $widget_name = Request::current()->controller();       // название виджета
+         $controller = Request::initial()->controller();    // контроллер
+         $action = Request::initial()->action();            // экшен
+
+         // Загружаем файл конфигураций
+         $widget_config = Kohana::config("widgets.$widget_name.$controller");
+
+         // Запрещаем вывод виджета в экшенах, указанных в конфигах
+         if ($widget_config != NULL)
+         {
+             if (in_array($action, $widget_config))
+             {
+                $this->auto_render = FALSE;
+                return NULL;
+             }
+            
+         }
+    }
+}
