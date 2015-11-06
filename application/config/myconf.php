@@ -11,5 +11,5 @@ return array(
     'site_name' => 'ITBooks',
     'bay' => 'Корзина',
     'mybay' => 'http://kohana/bay',
-    
+    'admin' => 'admin',
 );

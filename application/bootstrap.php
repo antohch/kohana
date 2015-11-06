@@ -160,6 +160,13 @@ Route::set('wokr','<action>', array('action' => 'oplata|dostavka|korzina'))
             'controller' => 'work',
             'action' => 'oplata',
         ));
+Route::set('admin', Kohana::$config->load('myconf.admin').'/(<controller>(/<action>(/<index>)))')
+        ->defaults(array(
+            'directory' => 'admin',
+            'controller' => 'AllBay',
+            'action' => 'index',
+        ));
+        
 Route::set('widgets', 'widgets/(<controller>(/<action>(/<index>)))')
 	->defaults(array(
                 'directory' => 'widgets',
