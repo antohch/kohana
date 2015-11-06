@@ -145,44 +145,46 @@ Kohana::modules(array(
  * Set the routes. Each route must have a minimum of a name, a URI and a set of
  * defaults for the URI.
  */
-Route::set('user','<action>', array('action' => 'zakaz|profil'))
-        ->defaults(array(
-            'controller' => 'user',
-            'action' => 'zakaz',
-        ));
-Route::set('auto','<action>', array('action' => 'enter|reg|exit'))
-        ->defaults(array(
-            'controller' => 'auto',
-            'action' => 'oplata',
-        ));
-Route::set('wokr','<action>', array('action' => 'oplata|dostavka|korzina'))
-        ->defaults(array(
-            'controller' => 'work',
-            'action' => 'oplata',
-        ));
-Route::set('admin', Kohana::$config->load('myconf.admin').'/(<controller>(/<action>(/<index>)))')
-        ->defaults(array(
-            'directory' => 'admin',
-            'controller' => 'AllBay',
-            'action' => 'index',
-        ));
-        
-Route::set('widgets', 'widgets/(<controller>(/<action>(/<index>)))')
-	->defaults(array(
-                'directory' => 'widgets',
-		'controller' => 'widgets',
-		'action'     => 'index',
-	));
-Route::set('Lesson', 'lesson/(<controller>(/<action>(/<index>)))')
-	->defaults(array(
-                'directory' => 'lesson',
-		'controller' => 'Welcome',
-		'action'     => 'index',
-	));
-Route::set('default', '(<controller>(/<action>(/<id>)))')
-	->defaults(array(
-		'controller' => 'index',
-		'action'     => 'index',
-	));
+if (! Route::cache()){
+    Route::set('user','<action>', array('action' => 'zakaz|profil'))
+            ->defaults(array(
+                'controller' => 'user',
+                'action' => 'zakaz',
+            ));
+    Route::set('auto','<action>', array('action' => 'enter|reg|exit'))
+            ->defaults(array(
+                'controller' => 'auto',
+                'action' => 'oplata',
+            ));
+    Route::set('wokr','<action>', array('action' => 'oplata|dostavka|korzina'))
+            ->defaults(array(
+                'controller' => 'work',
+                'action' => 'oplata',
+            ));
+    Route::set('admin', Kohana::$config->load('myconf.admin').'/(<controller>(/<action>(/<index>)))')
+            ->defaults(array(
+                'directory' => 'admin',
+                'controller' => 'AllBay',
+                'action' => 'index',
+            ));
 
+    Route::set('widgets', 'widgets/(<controller>(/<action>(/<index>)))')
+            ->defaults(array(
+                    'directory' => 'widgets',
+                    'controller' => 'widgets',
+                    'action'     => 'index',
+            ));
+    Route::set('Lesson', 'lesson/(<controller>(/<action>(/<index>)))')
+            ->defaults(array(
+                    'directory' => 'lesson',
+                    'controller' => 'Welcome',
+                    'action'     => 'index',
+            ));
+    Route::set('default', '(<controller>(/<action>(/<id>)))')
+            ->defaults(array(
+                    'controller' => 'index',
+                    'action'     => 'index',
+            ));
+    Route::cache(TRUE);
+}
 
