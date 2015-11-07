@@ -1,6 +1,7 @@
 ﻿
 //среда разработки NetBeans IDE https://netbeans.org
-//на русском http://kohanaframework.su
+//на русском http://kohanaframework.su//
+http://kohanaframework.org
 //урок 1 Всё Всё
 //урок 2 Всё Всё
 //урок 3 Всё Всё

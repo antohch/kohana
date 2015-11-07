@@ -8,5 +8,5 @@
 <input type="password" name="password">
 </p>
 <p><input type="submit" value="Войти"></p>
-<a href="http://kohana/reg">Регистрация</a>
+<a href="/reg">Регистрация</a>
 </form>
