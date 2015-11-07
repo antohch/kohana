@@ -6,7 +6,7 @@ class Controller_Index extends Controller_Base{
     
     public function before(){
         parent::before();
-        
+
         //вывод в шаблон
         $this->template->styles[] = 'media/css/style.css';
     } 

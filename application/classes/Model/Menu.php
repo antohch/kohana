@@ -4,10 +4,11 @@ class Model_Menu extends Model{
     public function all_menu()
     {
         return array(
-            'На главную' => 'http://kohana/index',
-            'Каталок' => 'http://kohana/catalog',
-            'Лучшие товары' => 'http://kohana/top',
-            'Корзина' => 'http://kohana/bay',
+            'На главную' => 'index',
+            'Каталок' => 'catalog',
+            'Лучшие товары' => 'top',
+            'Корзина' => 'bay',
+            'Новости' => 'news',
         );
     }
 }
