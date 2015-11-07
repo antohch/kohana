@@ -14,7 +14,7 @@ class Controller_Base extends Controller_Template{
         $this->template->page_footer = $footer;
         
         //Подключение стилий и скриптов
-        $this->template->styles = array('media/css/style.css');
+        $this->template->styles = array('');
         $this->template->scripts = array();
         
         //Подключаем блоки

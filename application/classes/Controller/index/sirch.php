@@ -1,7 +1,7 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Controller_WorkKorzina extends Controller_Base{
+class Controller_Index_Sirch extends Controller_Index{
     public function action_index(){
-        echo 'WorkKorzina';
+        echo 'sirch';
     }
 }

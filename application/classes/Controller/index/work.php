@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Controller_Work extends Controller_Base{
+class Controller_Index_Work extends Controller_Index{
     public function before(){
         parent::before();
     }

@@ -3,7 +3,7 @@
 class Model_Into extends Model{
     public function intoHref(){
         return array(
-            'href' => 'http://kohana/',
+            'href' => 'http://kohana/enter',
         );
     }
 }

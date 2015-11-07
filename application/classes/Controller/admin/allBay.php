@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Controller_Admin_AllBay extends Controller_Base{
+class Controller_Admin_AllBay extends Controller_Admin{
     public function before(){
         parent::before();
         $menu = Request::factory('widgets/menu')->execute();

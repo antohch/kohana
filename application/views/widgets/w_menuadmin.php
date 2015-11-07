@@ -1,0 +1,1 @@
+<a href="/admin">Главная</a>-<a href="/admin/allBay">Заказы</a>-<a href="/admin/edit">Страницы</a>-<a href="/admin/editTovar">Товары</a>-<a href="/admin/client">Пользователи</a>-<a href="/admin/configSait">Настройки</a>

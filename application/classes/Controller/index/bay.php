@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Controller_Bay extends Controller_Base{
+class Controller_Index_Bay extends Controller_Index{
     public function before(){
         parent::before();
         //получить виджет
@@ -16,7 +16,7 @@ class Controller_Bay extends Controller_Base{
     public function action_index(){
         //получить данные из модуля и обработать
         $bay = Model::factory('bay')->showBay();
-        $content = View::factory('v_bay', array('bay' => $bay));
+        $content = View::factory('index/v_bay', array('bay' => $bay));
         $sirch = Request::factory('widgets/sirch')->execute();
         //вывести в шаблон
         $this->template->page_title = Kohana::$config->load('myconf.bay');
