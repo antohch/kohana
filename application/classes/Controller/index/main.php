@@ -8,11 +8,12 @@ class Controller_Index_main extends Controller_Index{
         $topproducts = Request::factory('widgets/topproducts')->execute();
         $into = Request::factory('widgets/Into')->execute();
         $mybay = Request::factory('widgets/mybay')->execute();
+        $news = Request::factory('widgets/news')->execute();
         
         //вывод в шаблон
         $this->template->block_headerRight = array($mybay);
         $this->template->block_left = array($menu);
-        $this->template->block_right = array($into,$topproducts);
+        $this->template->block_right = array($into,$topproducts, $news);
     }
     public function action_index()
     {  
