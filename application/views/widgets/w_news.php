@@ -1,4 +1,4 @@
-<h2>Новости</h2>
+<a href="/news"><h2>Новости</h2></a>
 <ul>
 <?php foreach($news as $k => $v): ?>
 

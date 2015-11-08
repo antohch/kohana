@@ -11,7 +11,19 @@ class Controller_Index_News extends Controller_Index{
         $this->template->block_headerRight = array($bay);
     }
     public function action_index(){
-        $news = View::factory('index/news/v_news_index');
+        
+        $text = Model::factory('news')->newsPage();
+        $news = View::factory('index/news/v_news_index', array('news' => $text));
+        
+        $this->template->page_title = 'Новости';
+        $this->template->block_center = array($news);
+    }
+    public function action_content(){
+        $id = $this->request->param('id');
+        $text = Model::factory('news')->newsOne($id);
+        $idNext = Model::factory('news')->newsNext($id);
+        $idBack = Model::factory('news')->newsBack($id);
+        $news = View::factory('index/news/v_news_one', array('news' => $text, 'idNext' => $idNext, 'idBack' => $idBack));
         
         $this->template->page_title = 'Новости';
         $this->template->block_center = array($news);

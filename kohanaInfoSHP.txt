@@ -2,6 +2,7 @@
 //среда разработки NetBeans IDE https://netbeans.org
 //на русском http://kohanaframework.su//
 http://kohanaframework.org
+http://101.brotkin.ru/guide/kohana101/basic/request
 //урок 1 Всё Всё
 //урок 2 Всё Всё
 //урок 3 Всё Всё
