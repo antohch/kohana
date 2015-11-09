@@ -14,8 +14,11 @@ class Controller_Admin_EditNews extends Controller_Admin{
            $title = $this->request->post('title');
            $intro = $this->request->post('intro');
            $content = $this->request->post('content');
-           $date = $this->request->post('date');
-           
+           $d = $this->request->post('d');
+           $m = $this->request->post('m');
+           $y = $this->request->post('y');
+           $date = $y.$m.$d;
+
            $query = DB::insert('news', array('title','intro','content','date'))//подготовить запрос для отправки записи в базу
                   ->values(array($title, $intro, $content, $date));
            $query->execute();//отправить запрос на сервер
