@@ -10,13 +10,13 @@ class Controller_Admin_EditNews extends Controller_Admin{
     }
     public function action_add(){
         //инициализация реквеста, для работы с базой
-        $request = Request::$initial;
-        if($request->method() == HTTP_Request::POST){
+       // $request = Request::$initial;
+        if($this->request->method() == HTTP_Request::POST){
             //получаем post
-           $title = $request->post('title');
-           $intro = $request->post('intro');
-           $content = $request->post('content');
-           $date = $request->post('date');
+           $title = $this->request->post('title');
+           $intro = $this->request->post('intro');
+           $content = $this->request->post('content');
+           $date = $this->request->post('date');
            
            $query = DB::insert('news', array('title','intro','content','date'))//подготовить запрос для отправки записи в базу
                   ->values(array($title, $intro, $content, $date));
