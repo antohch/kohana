@@ -146,13 +146,13 @@ Kohana::modules(array(
  * defaults for the URI.
  */
 //if ( ! Route::cache()) {
-    Route::set('admin', 'admin(/<controller>(/<action>(/<index>)))')
+    Route::set('admin', 'admin(/<controller>(/<action>(/<id>)))')
             ->defaults(array(
                 'directory' => 'admin',
                 'controller' => 'admin',
                 'action' => 'index',
             ));
-    Route::set('index', 'index(/<controller>(/<action>(/<index>)))')
+    Route::set('index', 'index(/<controller>(/<action>(/<id>)))')
         ->defaults(array(
                 'directory' => 'index',
                 'controller' => 'main',
@@ -177,13 +177,13 @@ Kohana::modules(array(
 
 
 
-    Route::set('widgets', 'widgets(/<controller>(/<action>(/<index>)))')
+    Route::set('widgets', 'widgets(/<controller>(/<action>(/<id>)))')
             ->defaults(array(
                     'directory' => 'widgets',
                     'controller' => 'widgets',
                     'action'     => 'index',
             ));
-    Route::set('Lesson', 'lesson(/<controller>(/<action>(/<index>)))')
+    Route::set('Lesson', 'lesson(/<controller>(/<action>(/<id>)))')
             ->defaults(array(
                     'directory' => 'lesson',
                     'controller' => 'Welcome',
