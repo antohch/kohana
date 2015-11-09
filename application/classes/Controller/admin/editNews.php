@@ -2,7 +2,11 @@
 
 class Controller_Admin_EditNews extends Controller_Admin{
     public function action_index(){
-        echo 'admin_EditNews';
+        $news = Model::factory('news')->newsPage();
+        
+        $add = View::factory('admin/news/v_news', array('news' => $news));
+        
+        $this->template->block_center = array($add);
     }
     public function action_add(){
         //инициализация реквеста, для работы с базой
