@@ -1,4 +1,5 @@
 <a href="/admin/editNews/add"><p>Добавить новость</p><a/>
+
 <ul>
 <?php foreach($news as $str):?>
     <li>

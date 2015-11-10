@@ -41,14 +41,23 @@ class Model_News extends Model{
         }
         return $idBack;
     }
-    public function update($id = null, $title = null, $intro = null, $content = null, $date = null){
+    public function update($news, $id){
         $query = DB::update('news')->set(array(
-                'title' => $title,
-                'intro' => $intro,
-                'content' => $content,
-                'date' => $date,
+                'title' => ':title',
+                'intro' => ':intro',
+                'content' => ':content',
+                'date' => ':date',
             ))->where('id', '=', $id);
+        $query->parameters(array(
+                    ':title' => $news['title'],
+                    ':intro' => $news['intro'],
+                    ':content' => $news['content'],
+                    ':date' => $news['date'],
+                ));
         $query->execute();
         return $query;
+    }
+    public function error($error = nell){
+        return $error;
     }
 }

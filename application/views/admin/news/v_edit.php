@@ -1,3 +1,6 @@
+<?php if($error):?>
+<?php foreach($error as $e){echo $e;}?>
+<?php endif;?>
 <form action="/admin/editNews/edit/<?=$id?>" method="post">
     <p><input name='title' value='<?=$title?>'>Заголовок</p>
     <p><textarea cols='40' rows='4' name='intro' ><?=$intro?></textarea>Краткое описание</p>
