@@ -35,3 +35,18 @@
 <?php endforeach;?>
 </table>
 </ul>
+<br>
+<?php
+    
+    foreach($catToPro as $catStr){
+        $strProToCat = null;
+        echo $catStr->title.': ';
+        $proToCat = $catStr->product->find_all();
+        foreach($proToCat as $pro){
+            $strProToCat .= ' '.$pro->title.', ';
+        }
+        echo substr($strProToCat, 0, -2);
+        echo '<br>';
+    }
+    
+?>

@@ -3,8 +3,15 @@
 class Controller_Admin_EditTovar extends Controller_Admin{
     public function action_index(){
         $product = array_reverse(ORM::factory('product')->find_all()->as_array());
-        $productView = View::factory('admin/products/v_products_index', array('product' => $product,));
+        $catToPro = ORM::factory('categori')->find_all();
+        $productView = View::factory('admin/products/v_products_index', array(
+            'product' => $product,
+            'catToPro' => $catToPro,
+            ));
         $this->template->block_center = array($productView);
+        
+        
+
     }
     public function action_add(){
         $product = ORM::factory('product');
