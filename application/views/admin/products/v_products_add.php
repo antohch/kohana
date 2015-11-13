@@ -1,3 +1,4 @@
+<?php if($errors){foreach($errors as $ms){echo $ms;};}?>
 <form action="/admin/editTovar/add" method="post">
     <p><input name='cat_id'>Категория</p>
     <p><textarea cols='40' rows='4' name='title'></textarea>Заголовок товара</p>

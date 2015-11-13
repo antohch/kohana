@@ -3,18 +3,34 @@
 <table border="1">
     <tr>
         <td>Категория</td>
+        <td>Комментарии</td>
         <td>Название</td>
         <td>Цена</td>
         <td>Статус</td>
     </tr>
 <?php foreach($product as $str):?>
     <tr>
-        <td><?=$str->cat_id?></td>
+        <td><?php 
+        $catstr = null; 
+        $cat = $str->categori->find_all(); 
+        foreach($cat as $v){
+            $catstr .= $v->title.', ';
+            
+        }
+        if ($catstr){
+            $tochko = '.';
+        }
+        else{
+            $tochko = '';
+        }
+        echo substr($catstr, 0, -2).$tochko;
+        ?></td>
+        <td><?php $commet = array_reverse($str->comments->find_all()->as_array()); foreach($commet as $com){echo $com->text.", ";}?></td>
         <td><?=$str->title?></td>
         <td><?=$str->cost?></td>
         <td><?=$str->status;?></td>
         <td><a href="/admin/edittovar/edit/<?=$str->id?>">Изменить</a></td>
-        <td><a href="/admin/edittovar/del/<?=$str->id?>">Удалить</a></td>
+        <td><a href="/admin/edittovar/delete/<?=$str->id?>">Удалить</a></td>
     </tr>
 <?php endforeach;?>
 </table>
