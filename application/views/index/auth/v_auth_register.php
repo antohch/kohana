@@ -1,1 +1,23 @@
 <p>Форма регистрации</p>
+<?php if($errors){
+     print_r($errors);
+    foreach($errors as $k => $ms){
+        if (is_array($ms)){
+            foreach($ms as $km => $text){
+                echo $k.' => '.$km.' => '.$text.'<br>';
+            }
+        }else{
+            echo $k.' => '.$ms.'<br>';
+        }
+    }
+      //  foreach($ms as $text){
+          //  echo $text.'<br>';};}
+    }?>
+<form action="/auto/reg/" method="post">
+    <p><input name='username'>Логин</p>
+    <p><input name='first_name'>Имя</p>
+    <p><input name='email'>Почта</p>
+    <p><input name='password'>Пароль</p>
+    <p><input name='password_confirm'>Повторите пароль</p>
+    <input type='submit' value='Зарегистрироваться'>
+</form>

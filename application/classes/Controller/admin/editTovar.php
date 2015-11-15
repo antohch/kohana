@@ -31,12 +31,7 @@ class Controller_Admin_EditTovar extends Controller_Admin{
             $product->status = $status;
             try{
                 $product->save();
-
-                if (is_array($cat)){
-                    foreach($cat as $id_cat){
-                        $product->add('categori', $id_cat);
-                    }
-                }
+                $product->add('categori', $cat);
                 header('Location: /admin/edittovar/add');
                 exit;
             }

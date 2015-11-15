@@ -17,7 +17,7 @@ return array(
 	'in_array'      => ':field must be one of the available options',
 	'ip'            => ':field must be an ip address',
 	'matches'       => ':field must be the same as :param3',
-	'min_length'    => ':field must be at least :param2 characters long',
+	'min_length'    => ':field должен быть не меньше :param2 символов',
 	'max_length'    => ':field must not exceed :param2 characters long',
 	'not_empty'     => ':field должен быть заполнен',
 	'numeric'       => ':field must be numeric',

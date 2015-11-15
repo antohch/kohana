@@ -1,10 +1,18 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 //Общий базовый класс
 class Controller_Base extends Controller_Template{
+    
+    public $user;
+    public $auth;
+    
     public $template = 'v_base';
     public function before(){
         parent::before();
+        $this->auth = Auth::instance();
+        $this->user = $this->auth->get_user();
+        
         $site_name = Kohana::$config->load('myconf.site_name');
+        
         $site_description = Kohana::$config->load('myconf.site_description');
         $footer = Kohana::$config->load('myconf.footer');
         //Вывод в шаблон
