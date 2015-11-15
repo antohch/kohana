@@ -27,7 +27,6 @@ class Model_User extends Model_Auth_User{
                             array('min_length', array(':value', 4)),
                             array('max_length', array(':value', 127)),
                             array('email'),
-                            array(array($this, 'email_available'), array(':validation', ':field')),
                     ),
             );
     }
