@@ -5,4 +5,6 @@ return array(
     'email_available'         => 'Поле ":field" уже существует',
     'no_user' => 'Неверный логин или пароль',
     'password' => 'Пароль',
+    'unique' => 'Поле ":field" должно быть уникальным',
+    'not_empty' => 'Поле :field должно быть заполнено',
 );
