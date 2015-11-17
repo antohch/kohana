@@ -1,11 +1,15 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 //Общий базовый класс
 class Controller_Admin extends Controller_Base{
-    
+ 
     public $template = 'admin/v_base';
     
     public function before(){
         parent::before();
+        if(!$this->auth->logged_in('admin')){
+            header('Location: /auto/login');
+            exit;
+        }
         $menu_admin = Request::factory('widgets/menuadmin')->execute();
         //вывод в шаблон
         $this->template->styles[] = 'media/css/style.css';

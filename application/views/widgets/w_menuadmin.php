@@ -1,1 +1,1 @@
-<a href="/admin">Главная</a>-<a href="/admin/allBay">Заказы</a>-<a href="/admin/editNews">Новости</a>-<a href="/admin/editTovar">Товары</a>-<a href="/admin/client">Пользователи</a>-<a href="/admin/configSait">Настройки</a>-<a href="/admin/auth/reg/">Создать админа<a/>
+<a href="/admin">Главная</a>-<a href="/admin/allBay">Заказы</a>-<a href="/admin/editNews">Новости</a>-<a href="/admin/editTovar">Товары</a>-<a href="/admin/client">Пользователи</a>-<a href="/admin/configSait">Настройки</a>-<a href="/admin/auth/user/">Учетные записи<a/>
