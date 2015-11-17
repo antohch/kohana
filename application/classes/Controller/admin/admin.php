@@ -3,6 +3,10 @@
 class Controller_Admin_Admin extends Controller_Admin{
     public function before(){
         parent::before();
+        if(!$this->auth->logged_in('admin')){
+            header('Location: /auto/login');
+            exit;
+        }
     }
     public function action_index() {
 

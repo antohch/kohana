@@ -1,19 +1,21 @@
-<p>Форма регистрации</p>
-<?php if($errors){
-     print_r($errors);
+<p>Форма регистрации админа</p>
+<?php 
+I18n::lang('ru');
+if($errors){
     foreach($errors as $k => $ms){
         if (is_array($ms)){
             foreach($ms as $km => $text){
-                echo $k.' => '.$km.' => '.$text.'<br>';
+                echo __($text).'<br>';
             }
-        }else{
-            echo $k.' => '.$ms.'<br>';
+       }else{
+            echo __($ms).'<br>';
         }
     }
-      //  foreach($ms as $text){
-          //  echo $text.'<br>';};}
-    }?>
-<form action="/auto/reg/" method="post">
+
+        
+    }
+    ?>
+<form action="/admin/auth/reg/" method="post">
     <p><input name='username'>Логин</p>
     <p><input name='first_name'>Имя</p>
     <p><input name='email'>Почта</p>

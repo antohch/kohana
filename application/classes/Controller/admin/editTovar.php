@@ -3,9 +3,18 @@
 class Controller_Admin_EditTovar extends Controller_Admin{
     public function action_index(){
         $product = array_reverse(ORM::factory('product')->find_all()->as_array());
-        $productView = View::factory('admin/products/v_products_index', array('product' => $product,));
+        $catToPro = ORM::factory('categori')->find_all();
+        $productView = View::factory('admin/products/v_products_index', array(
+            'product' => $product,
+            'catToPro' => $catToPro,
+            ));
         $this->template->block_center = array($productView);
         
+<<<<<<< HEAD
+=======
+        
+
+>>>>>>> bb70e782d9ebe95f452acd166560d19df3e948cd
     }
     public function action_add(){
         $product = ORM::factory('product');
@@ -25,12 +34,7 @@ class Controller_Admin_EditTovar extends Controller_Admin{
             $product->status = $status;
             try{
                 $product->save();
-
-                if (is_array($cat)){
-                    foreach($cat as $id_cat){
-                        $product->add('categori', $id_cat);
-                    }
-                }
+                $product->add('categori', $cat);
                 header('Location: /admin/edittovar/add');
                 exit;
             }
