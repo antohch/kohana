@@ -9,12 +9,6 @@ class Controller_Admin_EditTovar extends Controller_Admin{
             'catToPro' => $catToPro,
             ));
         $this->template->block_center = array($productView);
-        
-<<<<<<< HEAD
-=======
-        
-
->>>>>>> bb70e782d9ebe95f452acd166560d19df3e948cd
     }
     public function action_add(){
         $product = ORM::factory('product');
