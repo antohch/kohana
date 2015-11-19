@@ -60,15 +60,15 @@ class Controller_Admin_EditTovar extends Controller_Admin{
             try{
                 $product->save();
                 $product->add('categori', $cat);
-                
-                if(!empty($_FILES['images']['name'][0])){
-                    foreach($_FILES['images']['tmp_name'] as $image){
+                if(!empty($_FILES['image']['tmp_name'][0])){
+                    foreach($_FILES['image']['tmp_name'] as $image){
                         $filename = $this->_upload_img($image);
                         
                         $im_db = ORM::factory('image');
                         $im_db->product_id = $product->pk();
                         $im_db->name = $filename;
-                        $im_db->save;
+                        
+                        $im_db->save();
                     }
                 }
                 
@@ -98,6 +98,9 @@ class Controller_Admin_EditTovar extends Controller_Admin{
     public function action_edit(){
         $id = $this->request->param('id');
         $product = ORM::factory('product')->where('id', '=', $id)->find();
+      
+        $data['images'] = $product->images->find_all()->as_array();
+        
         if($this->request->method() == 'POST'){
             $cat_id = $_POST['cat_id'];
             $title = $_POST['title'];
@@ -119,6 +122,17 @@ class Controller_Admin_EditTovar extends Controller_Admin{
                         $product->add('categori', $id_cat);
                     }
                 }
+                if(!empty($_FILES['image']['tmp_name'][0])){
+                    foreach($_FILES['image']['tmp_name'] as $image){
+                        $filename = $this->_upload_img($image);
+                        
+                        $im_db = ORM::factory('image');
+                        $im_db->product_id = $product->pk();
+                        $im_db->name = $filename;
+                        
+                        $im_db->save();
+                    }
+                }
                 header('Location: /admin/edittovar/');
                 exit;
             }
@@ -126,7 +140,7 @@ class Controller_Admin_EditTovar extends Controller_Admin{
                 $errors = $e->errors('validation');
             }
         }
-        $edit = View::factory('/admin/products/v_products_edit', array('product' => $product));
+        $edit = View::factory('/admin/products/v_products_edit', array('product' => $product, 'data' => $data));
         $this->template->block_center = array($edit);
     }
 }
