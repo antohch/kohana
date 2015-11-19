@@ -9,6 +9,10 @@ class Model_Product extends ORM {
             'model' => 'comment',
             'foreign_key' => 'product_id',
         ),
+        'images' => array(
+            'model' => 'image',
+            'foreign_key' => 'product_id',
+        ),
         'categori' => array(
             'model' => 'categori',
             'foreign_key' => 'product_id',
