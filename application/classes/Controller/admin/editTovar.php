@@ -143,4 +143,20 @@ class Controller_Admin_EditTovar extends Controller_Admin{
         $edit = View::factory('/admin/products/v_products_edit', array('product' => $product, 'data' => $data));
         $this->template->block_center = array($edit);
     }
+       
+   public function action_delimg(){
+       $id = $this->request->param('id');
+       $product = ORM::factory('image')->where('id', '=', $id)->find();
+       $filename = "media/uploads/".$product->name;
+       $filenameSmall = "media/uploads/small_".$product->name;
+       if(file_exists($filename))
+            unlink($filename); 
+       if(file_exists($filenameSmall))
+            unlink($filenameSmall); 
+       if ($product){
+            $product->delete();
+            header('Location: /admin/edittovar/edit/'.$id);
+            exit;
+        }
+   }
 }
