@@ -146,7 +146,7 @@ Kohana::modules(array(
  * defaults for the URI.
  */
 //if ( ! Route::cache()) {
-    Route::set('admin', 'admin(/<controller>(/<action>(/<id>)))')
+    Route::set('admin', 'admin(/<controller>(/<action>(/<id>(/<idTovar>))))')
             ->defaults(array(
                 'directory' => 'admin',
                 'controller' => 'admin',

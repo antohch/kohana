@@ -14,7 +14,7 @@ class Controller_Index_Catalog extends Controller_Index{
     }
     public function action_index(){
         //получить список продуктов
-        $products = ORM::factory('product')->find_all()->as_array();
+        $products = array_reverse(ORM::factory('product')->find_all()->as_array());
         $content = View::factory('v_catalog', array(
                 'products' => $products,
                 ));

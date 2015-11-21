@@ -24,11 +24,9 @@ class Controller_Admin_EditTovar extends Controller_Admin{
         if($ext == NULL){
             $ext = 'jpg';
         }
-        $symbols = '34534651324369789fsgtrgfsdfsdvcnvma';
-        $filename = '';
-        for($i = 0; $i < 10; $i++){
-            $filename .= rand(1, strlen($symbols));
-        }
+        $symbols = '3x45346p513a2gzeg4369789fsgtrgzfsdfsdvcnvma';
+        $filename = substr(str_shuffle($symbols),0,16);
+
         $im = Image::factory($file);
         if($im->width > 150){
             $im->resize(150);
@@ -146,6 +144,7 @@ class Controller_Admin_EditTovar extends Controller_Admin{
        
    public function action_delimg(){
        $id = $this->request->param('id');
+       $idTovar = $this->request->param('idTovar');
        $product = ORM::factory('image')->where('id', '=', $id)->find();
        $filename = "media/uploads/".$product->name;
        $filenameSmall = "media/uploads/small_".$product->name;
@@ -155,7 +154,7 @@ class Controller_Admin_EditTovar extends Controller_Admin{
             unlink($filenameSmall); 
        if ($product){
             $product->delete();
-            header('Location: /admin/edittovar/edit/'.$id);
+            header('Location: /admin/edittovar/edit/'.$idTovar.'#img');
             exit;
         }
    }

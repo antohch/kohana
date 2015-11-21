@@ -24,15 +24,18 @@
     <input type='submit' value='Изменить'>
 </form>
 
-   
+   <a name="img"></a>
             <?=Form::label('images', 'Изображения')?>: <br/><br/>
             <?if (!empty($data['images'])):?>
 
             <table width="100%" cellspacing="20">
                 <tr>
+                    
+                
                 <?foreach($data['images'] as $i =>  $image):?>
                     <td align="center"><?=html::anchor('media/uploads/'. $image->name, html::image('media/uploads/small_' . $image->name), array('target' => '_blank'))?>
-                        <br><?=html::anchor('admin/edittovar/delimg/' . $image->id, 'Удалить')?>
+                        <br><?=html::anchor('admin/edittovar/delimg/' . $image->id.'/'.$product, 'Удалить')?>
+                        
                     </td>
                     <?if ($i % 2):?>
                         </tr><tr>
