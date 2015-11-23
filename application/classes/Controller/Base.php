@@ -8,6 +8,8 @@ class Controller_Base extends Controller_Template{
     public $template = 'v_base';
     public function before(){
         parent::before();
+        
+        I18n::lang('ru');
         $this->auth = Auth::instance();
         $this->user = $this->auth->get_user();
         
