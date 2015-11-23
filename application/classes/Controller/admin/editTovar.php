@@ -8,11 +8,22 @@ class Controller_Admin_EditTovar extends Controller_Admin{
         $this->template->scripts[] = 'media/js/upload.js';
     }
     public function action_index(){
-        $product = array_reverse(ORM::factory('product')->find_all()->as_array());
+        $count = ORM::factory('product')->count_all();
+        $pagination = Pagination::factory(array(
+            'total_items' => $count,
+            $this->request,
+        ));
+        $product = array_reverse(ORM::factory('product')
+            ->limit($pagination->items_per_page)
+            ->offset($pagination->offset)
+            ->find_all()
+            ->as_array()
+            );
         $catToPro = ORM::factory('categori')->find_all();
         $productView = View::factory('admin/products/v_products_index', array(
             'product' => $product,
             'catToPro' => $catToPro,
+            'pagination' => $pagination,
             ));
         $this->template->block_center = array($productView);
     }

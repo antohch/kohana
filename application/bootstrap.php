@@ -130,6 +130,7 @@ Kohana::modules(array(
 	'orm'        => MODPATH.'orm',        // Object Relationship Mapping
 	// 'unittest'   => MODPATH.'unittest',   // Unit testing
 	// 'userguide'  => MODPATH.'userguide',  // User guide and API documentation
+        'pagination' => MODPATH.'pagination',
 	));
 
 /**
@@ -146,7 +147,7 @@ Kohana::modules(array(
  * defaults for the URI.
  */
 //if ( ! Route::cache()) {
-    Route::set('admin', 'admin(/<controller>(/<action>(/<id>(/<idTovar>))))')
+    Route::set('admin', 'admin(/<controller>(/<action>(/page<page>)(/<id>(/<idTovar>))))')
             ->defaults(array(
                 'directory' => 'admin',
                 'controller' => 'admin',
