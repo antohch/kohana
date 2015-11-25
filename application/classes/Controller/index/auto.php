@@ -61,12 +61,18 @@ class Controller_Index_Auto extends Controller_Index{
             header ('Location: /');
             exit;
         }
-        $content = View::factory('/index/auth/v_auth_register')
-                ->bind('errors', $errors);
+        //закэшировал
+        $content = $this->cache->get('v_reg');
+        //$this->cache->delete('v_reg');
+        if($content == NULL){
+            $content = View::factory('/index/auth/v_auth_register')
+                    ->bind('errors', $errors);
+            $this->cache->set('v_reg', $content->render());
+        }
         
         //выводим в шаблон
         $this->template->page_title = 'Регистрация';
-       $this->template->block_center = array($content);
+        $this->template->block_center = array($content);
     }
     public function action_exit(){
         Auth::instance()->logout();
