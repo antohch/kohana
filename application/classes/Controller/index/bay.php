@@ -13,11 +13,40 @@ class Controller_Index_Bay extends Controller_Index{
     }
     public function action_index(){
         //получить данные из модуля и обработать
-        $bay = Model::factory('bay')->showBay();
-        $content = View::factory('index/v_bay', array('bay' => $bay));
+        $products_s = $this->session->get('products');
+        
+        if($products_s != NULL){
+            $products = ORM::factory('product');
+            foreach($products_s as $id => $count){
+                $products->or_where('id', '=', $id);
+            }
+            $products = $products->find_all();
+        }
+        else{
+            $products = NULL;
+        }
+
+        $content = View::factory('index/v_bay', array(
+            'products' => $products,
+            'products_s' => $products_s,
+            'sum' => 0,
+            ));
         $sirch = Request::factory('widgets/sirch')->execute();
         //вывести в шаблон
         $this->template->page_title = Kohana::$config->load('myconf.bay');
         $this->template->block_center = array($sirch, $content);
+    }
+    public function action_add(){
+        $products_s = $this->session->get('products');
+        $id = $this->request->param('id');
+
+        if (isset($products_s[$id])){
+            $products_s[$id]++;
+        }else{
+            $products_s[$id] = 1;
+        }
+        $this->session->set('products', $products_s);
+        header('Location: /bay');
+        exit;
     }
 }

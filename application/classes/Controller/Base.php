@@ -5,15 +5,20 @@ class Controller_Base extends Controller_Template{
     public $user;
     public $auth;
     public $cache;
+    public $session;
     
     public $template = 'v_base';
     public function before(){
         parent::before();
         
         I18n::lang('ru');
+        //Cookie::$salt = 'assfr423dsf';
+        Session::$default = 'cookie';
+        
         $this->cache = Cache::instance('file');
         $this->auth = Auth::instance();
         $this->user = $this->auth->get_user();
+        $this->session = Session::instance();
         
         $site_name = Kohana::$config->load('myconf.site_name');
         

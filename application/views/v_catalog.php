@@ -5,6 +5,7 @@
             <th>Картинки</th>
             <th>Наименование</th>
             <th>Цена</th>
+            <th>Купить</th>
         </tr>
     </thead>
     <tbody>
@@ -34,6 +35,7 @@
             ?></td>
             <td><?=$cost->title?></td>
             <td><?=$cost->cost?> руб.</td>
+            <td><a href="/bay/add/<?=$cost->id?>">Купить</a></td>
         </tr>
         <?php endforeach ?>
     </tbody>
