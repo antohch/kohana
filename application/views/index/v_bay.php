@@ -4,6 +4,7 @@
         <td>Количество</td>
         <td>Цена</td>
     </tr>    
-<?php print_r($products);?>
+<?php foreach($products as $cont):?>
+<?php endforeach?>
 
 </table>
