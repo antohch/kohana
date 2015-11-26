@@ -49,4 +49,14 @@ class Controller_Index_Bay extends Controller_Index{
         header('Location: /bay');
         exit;
     }
+    public function action_del(){
+        $id = $this->request->param('id');
+        $products_s = $this->session->get('products');
+        if(isset($products_s[$id])){
+            unset($products_s[$id]);
+        }
+        $this->session->set('products', $products_s);
+        header('Location: /bay');
+        exit;
+    }
 }
