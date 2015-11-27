@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10.10
+-- version 4.0.10.11
 -- http://www.phpmyadmin.net
 --
--- Хост: 127.0.0.1:3306
--- Время создания: Ноя 15 2015 г., 17:24
--- Версия сервера: 5.5.45
--- Версия PHP: 5.3.29
+-- Хост: phpmyadmin
+-- Время создания: Ноя 27 2015 г., 16:53
+-- Версия сервера: 5.5.25
+-- Версия PHP: 5.3.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -66,6 +66,27 @@ INSERT INTO `comments` (`id`, `product_id`, `text`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `images`
+--
+
+CREATE TABLE IF NOT EXISTS `images` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+--
+-- Дамп данных таблицы `images`
+--
+
+INSERT INTO `images` (`id`, `product_id`, `name`) VALUES
+(3, 2, '313362935115312318.jpg'),
+(4, 3, '17519271818148514.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `news`
 --
 
@@ -99,23 +120,30 @@ CREATE TABLE IF NOT EXISTS `productc_categoris` (
   `product_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
 
 --
 -- Дамп данных таблицы `productc_categoris`
 --
 
 INSERT INTO `productc_categoris` (`id`, `product_id`, `category_id`) VALUES
-(1, 3, 1),
-(2, 3, 2),
-(3, 3, 1),
-(4, 2, 1),
 (5, 4, 1),
 (6, 4, 2),
 (7, 4, 3),
 (8, 4, 4),
 (9, 5, 1),
-(10, 5, 2);
+(10, 5, 2),
+(12, 6, 1),
+(13, 1, 0),
+(15, 2, 1),
+(16, 3, 1),
+(17, 3, 1),
+(18, 3, 2),
+(19, 7, 0),
+(20, 8, 0),
+(21, 9, 0),
+(22, 10, 0),
+(23, 11, 0);
 
 -- --------------------------------------------------------
 
@@ -131,18 +159,24 @@ CREATE TABLE IF NOT EXISTS `products` (
   `cost` int(11) NOT NULL,
   `status` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
 -- Дамп данных таблицы `products`
 --
 
 INSERT INTO `products` (`id`, `cat_id`, `title`, `description`, `cost`, `status`) VALUES
-(1, 1, 'Продукт1 ', 'Описание продукты', 100, 1),
-(2, 2, 'Продукт 2', 'Описание продукты2', 200, 1),
+(1, 0, 'Продукт1', 'Описание продукты', 100, 1),
+(2, 1, 'Продукт 2', 'Описание продукты2', 200, 1),
 (3, 1, 'Продукт 3', 'Описание', 100, 1),
 (4, 0, 'sdfsdf', 'sdf', 333, 0),
-(5, 1, 'Проверка категорий', 'Проверка категорийПроверка категорийПроверка категорий', 11, 0);
+(5, 1, 'Проверка категорий', 'Проверка категорийПроверка категорийПроверка категорий', 11, 0),
+(6, 1, 'php', 'Книга по Php', 500, 0),
+(7, 0, 'asdf', 'sadf', 0, 0),
+(8, 0, 'asdf', 'asdf', 0, 0),
+(9, 0, 'ads', 'asdf', 0, 0),
+(10, 0, 'asdf', 'asdf', 0, 0),
+(11, 0, 'asdf', 'asdf', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -187,10 +221,7 @@ INSERT INTO `roles_users` (`user_id`, `role_id`) VALUES
 (1, 1),
 (5, 1),
 (6, 1),
-(7, 1),
 (8, 1),
-(9, 1),
-(10, 1),
 (11, 1),
 (11, 2);
 
@@ -205,6 +236,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(254) NOT NULL,
   `username` varchar(32) NOT NULL DEFAULT '',
   `first_name` varchar(255) NOT NULL,
+  `address` text NOT NULL,
   `password` varchar(64) NOT NULL,
   `logins` int(10) unsigned NOT NULL DEFAULT '0',
   `last_login` int(10) unsigned DEFAULT NULL,
@@ -217,15 +249,12 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Дамп данных таблицы `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `username`, `first_name`, `password`, `logins`, `last_login`) VALUES
-(1, 'comradeanton@mail.ru', 'user', 'sdfsdfsdfsdfsd', 'fba7580322a64329aa7e2669661085c7c7bc98ebcfe0c76bc517ae8f3027da47', 5, 1447594926),
-(5, 'comradeanton@mail.ruff', 'user34', 'пользователь3', 'fba7580322a64329aa7e2669661085c7c7bc98ebcfe0c76bc517ae8f3027da47', 0, NULL),
-(6, 'comradeanton@mail.rug', 'user34ee', 'пользовательddd', 'fba7580322a64329aa7e2669661085c7c7bc98ebcfe0c76bc517ae8f3027da47', 0, NULL),
-(7, 'comradeanton@mail.ruf', 'user3433ff', 'пользователь3', 'fba7580322a64329aa7e2669661085c7c7bc98ebcfe0c76bc517ae8f3027da47', 0, NULL),
-(8, 'comradeanton@mail.ruddd', 'user34ddddd', 'пользователь3', 'fba7580322a64329aa7e2669661085c7c7bc98ebcfe0c76bc517ae8f3027da47', 0, NULL),
-(9, 'comradeanton@mail.ruhhhh', 'user3444444', 'пользователь34444', 'fba7580322a64329aa7e2669661085c7c7bc98ebcfe0c76bc517ae8f3027da47', 0, NULL),
-(10, 'comradeanton@mail.ruzz', 'user34zzz', 'пользователь3zz', 'fba7580322a64329aa7e2669661085c7c7bc98ebcfe0c76bc517ae8f3027da47', 0, NULL),
-(11, 'admin@admin.ru', 'admin', 'admin', 'fba7580322a64329aa7e2669661085c7c7bc98ebcfe0c76bc517ae8f3027da47', 2, 1447594990);
+INSERT INTO `users` (`id`, `email`, `username`, `first_name`, `address`, `password`, `logins`, `last_login`) VALUES
+(1, 'comradeanton@mail.ru', 'user', 'sdfsdfsdfsdfsd', '', 'fba7580322a64329aa7e2669661085c7c7bc98ebcfe0c76bc517ae8f3027da47', 5, 1447594926),
+(5, 'comradeanton@mail.ruff', 'user34', 'пользователь3', '', 'fba7580322a64329aa7e2669661085c7c7bc98ebcfe0c76bc517ae8f3027da47', 0, NULL),
+(6, 'koly@mail.ru', 'user34ee', 'Коля', '', 'fba7580322a64329aa7e2669661085c7c7bc98ebcfe0c76bc517ae8f3027da47', 0, NULL),
+(8, 'vasy@mail.ru', 'user34ddddd', 'Вася', '', 'fba7580322a64329aa7e2669661085c7c7bc98ebcfe0c76bc517ae8f3027da47', 0, NULL),
+(11, 'admin@admin.ru', 'admin', 'admin', '', 'fba7580322a64329aa7e2669661085c7c7bc98ebcfe0c76bc517ae8f3027da47', 15, 1448627666);
 
 -- --------------------------------------------------------
 
@@ -245,7 +274,7 @@ CREATE TABLE IF NOT EXISTS `user_tokens` (
   UNIQUE KEY `uniq_token` (`token`),
   KEY `fk_user_id` (`user_id`),
   KEY `expires` (`expires`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц

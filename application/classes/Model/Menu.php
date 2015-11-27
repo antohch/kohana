@@ -9,6 +9,7 @@ class Model_Menu extends Model{
             'Лучшие товары' => '/top',
             'Корзина' => '/bay',
             'Новости' => '/news',
+            'Контакты' => '/main/contacts/',
         );
     }
 }

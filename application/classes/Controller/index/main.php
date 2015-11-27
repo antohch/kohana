@@ -27,5 +27,23 @@ class Controller_Index_main extends Controller_Index{
         $this->template->page_title = Kohana::$config->load('myconf.page_title');
         $this->template->block_center = array($block_center, $messag);
     }
+    public function action_contacts(){
+        
+        if($this->request->method() == "POST"){
+            $data = Arr::extract($_POST, array('name', 'email', 'text'));
+            $admin_email = Kohana::$config->load('settings.admin_email');
+            $site_name = Kohana::$config->load('setting.site_name');
+            
+            $email = Email::factory('Контакты', $data['text'])
+                    ->to($data['email'], $data['name'])//кому
+                    ->from($admin_email, $site_name)//от кого
+                    ->send();
+            header('Location: /main/contacts');
+            exit;
+        }
+        
+        $contact = View::factory('index/contact/v_contact');
+        $this->template->block_center = array($contact);
+    }
 
 }

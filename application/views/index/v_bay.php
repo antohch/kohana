@@ -14,3 +14,4 @@
 <?php endforeach?>
 
 </table>
+<a href="/bay/order">Оформить заказ</a>

@@ -59,4 +59,13 @@ class Controller_Index_Bay extends Controller_Index{
         header('Location: /bay');
         exit;
     }
+    public function action_order(){
+        if(!$this->auth->logged_in('login')){
+            header('Location: /auto/login');
+            exit;
+        }
+        $cont = View::factory('/index/bay/v_bay_order');
+        $this->template->block_center = array($cont);
+        
+    }
 }
