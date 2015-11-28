@@ -17,7 +17,8 @@ class Controller_Index_Payment extends Controller_Index {
         $this->auto_render = FALSE;
         
          if (!$this->auth->logged_in() || $this->session->get('products') == NULL || $this->session->get('sum_delivery') == NULL) {
-            $this->request->redirect();
+            header("Location: /");
+            exit;
         }
 
         // Полная стоимость заказа вместе с доставкой
